@@ -107,6 +107,8 @@ libttfautohint = SharedLibrary("ttfautohint.libttfautohint",
 with open("README.rst", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
+setuptools_git_ls_files = ["setuptools_git_ls_files"] if os.path.isdir(".git") else []
+
 setup(
     name="ttfautohint-py",
     use_scm_version=True,
@@ -123,7 +125,7 @@ setup(
     ext_modules=[libttfautohint],
     zip_safe=False,
     cmdclass=cmdclass,
-    setup_requires=['setuptools_scm'],
+    setup_requires=['setuptools_scm'] + setuptools_git_ls_files,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
