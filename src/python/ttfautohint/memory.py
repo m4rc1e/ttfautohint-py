@@ -13,10 +13,10 @@ from ctypes.util import find_library
 if sys.platform == "win32":
     libc = cdll.msvcrt
 else:
-    libc_path = find_library("c")
-    if libc_path is None:
-        raise OSError("Could not find the libc shared library")
-    libc = cdll.LoadLibrary(libc_path)
+#    libc_path = find_library("c")
+#    if libc_path is None:
+#        raise OSError("Could not find the libc shared library")
+    libc = cdll.LoadLibrary("libc.dylib")
 
 malloc = libc.malloc
 malloc.argtypes = [c_size_t]
