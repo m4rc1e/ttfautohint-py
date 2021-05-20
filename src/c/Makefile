@@ -90,7 +90,7 @@ $(TMP)/.harfbuzz-stamp: $(TMP)/.freetype-stamp
 	@touch $(TMP)/.harfbuzz-stamp
 
 $(TMP)/.ttfautohint-stamp: $(TMP)/.harfbuzz-stamp
-	cd $(SRC)/ttfautohint; ./bootstrap
+	cd $(SRC)/ttfautohint; ./bootstrap --no-git --gnulib-srcdir=".gnulib"
 	@rm -rf $(TMP)/ttfautohint
 	@mkdir -p $(TMP)/ttfautohint
 	cd $(TMP)/ttfautohint; $(SRC)/ttfautohint/configure \
